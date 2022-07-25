@@ -133,10 +133,6 @@ impl User {
             self.delegated_amount() + amount <= self.vote_amount.0,
             "ERR_NOT_ENOUGH_AVAILABLE_AMOUNT"
         );
-        assert!(
-            env::block_timestamp() >= self.next_action_timestamp.0,
-            "ERR_NOT_ENOUGH_TIME_PASSED"
-        );
         self.vote_amount.0 -= amount;
     }
 
